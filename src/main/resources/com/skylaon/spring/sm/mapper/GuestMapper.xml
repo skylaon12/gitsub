@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+	PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+	"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.skylaon.spring.sm.mapper.GuestMapper">
+	<select id="getList" resultType="com.skylaon.spring.sm.vo.GuestVO">
+		SELECT * from tbl_guest limit #{limitIndex} , 5
+	</select>
+	<select id="read" resultType="com.skylaon.spring.sm.vo.GuestVO">
+		SELECT * FROM TBL_GUEST WHERE BNO = #{bno}
+	</select>
+	<delete id="del">
+		DELETE FROM TBL_GUEST WHERE BNO = #{bno}
+	</delete>
+	<insert id="write">
+		INSERT INTO TBL_GUEST (BTEXT) VALUES (#{btext})
+	</insert>
+	<update id="modify">
+		UPDATE TBL_GUEST SET BTEXT = #{btext} WHERE BNO = #{bno}
+	</update>	
+</mapper>
